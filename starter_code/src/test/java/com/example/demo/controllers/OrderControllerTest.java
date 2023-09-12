@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import com.example.demo.Splunk.splunk;
 import com.example.demo.TestUtils;
 import com.example.demo.model.persistence.Cart;
 import com.example.demo.model.persistence.Item;
@@ -28,6 +29,7 @@ public class OrderControllerTest {
     private OrderController orderController;
     private UserRepository userRepo = mock(UserRepository.class);
     private OrderRepository orderRepo = mock(OrderRepository.class);
+    private splunk splunkClient = mock(splunk.class);
     private static final Logger log = LoggerFactory.getLogger(UserController.class);
 
     @Before
@@ -35,6 +37,7 @@ public class OrderControllerTest {
         orderController = new OrderController();
         TestUtils.injectObjects(orderController,"userRepository",userRepo);
         TestUtils.injectObjects(orderController,"orderRepository",orderRepo);
+        TestUtils.injectObjects(orderController,"splunkClient",splunkClient);
     }
 
     @Test

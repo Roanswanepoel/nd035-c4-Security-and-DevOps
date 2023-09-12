@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import com.example.demo.Splunk.splunk;
 import com.example.demo.TestUtils;
 import com.example.demo.model.persistence.Cart;
 import com.example.demo.model.persistence.User;
@@ -25,6 +26,7 @@ public class UserControllerTest {
     private BCryptPasswordEncoder bCryptPasswordEncoder = mock(BCryptPasswordEncoder.class);
     private UserRepository userRepo = mock(UserRepository.class);
     private CartRepository cartRepo = mock(CartRepository.class);
+    private splunk splunkClient = mock(splunk.class);
     private static final Logger log = LoggerFactory.getLogger(UserController.class);
 
     @Before
@@ -33,6 +35,7 @@ public class UserControllerTest {
         TestUtils.injectObjects(userController,"userRepository",userRepo);
         TestUtils.injectObjects(userController,"cartRepository",cartRepo);
         TestUtils.injectObjects(userController,"bCryptPasswordEncoder",bCryptPasswordEncoder);
+        TestUtils.injectObjects(userController,"splunkClient",splunkClient);
     }
 
     @Test
