@@ -36,8 +36,8 @@ public class ItemControllerTest {
         item.setId(1L);
         item.setName("Test Item");
         item.setPrice(BigDecimal.valueOf(10.25));
-        when(itemRepository.findById(1L)).thenReturn(Optional.of(item));
-        final ResponseEntity<Item> response = itemController.getItemById(1L);
+        when(itemRepository.findById(item.getId())).thenReturn(Optional.of(item));
+        final ResponseEntity<Item> response = itemController.getItemById(item.getId());
         Assert.assertNotNull(response);
         Assert.assertEquals(200,response.getStatusCodeValue());
         Item item2 = response.getBody();
